@@ -1,0 +1,10 @@
+{
+  "description": "Create a personalized, cinematic birthday website that tells your love story through elegant design, interactive elements, and heartfelt memories.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
