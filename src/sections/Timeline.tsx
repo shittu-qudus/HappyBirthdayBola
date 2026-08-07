@@ -16,7 +16,7 @@ const milestones = [
     title: 'Our First Date',
     desc: '{{Where did you go? What happened? How did the evening end? Every detail matters.}}',
     Icon: FiMap,
-    photo: '/src/images/date1.JPG',
+    photo: '/images/date1.JPG',
     alt: 'Red roses — our first date',
   },
   {
@@ -24,7 +24,7 @@ const milestones = [
     title: 'First Photo Together',
     desc: '{{The first time someone captured both of you. Where were you? How did it feel?}}',
     Icon: FiCamera,
-    photo: '/src/images/firstpic.jpeg',
+    photo: '/images/firstpic.jpeg',
     alt: 'Silhouette — our first captured moment',
   },
   {
