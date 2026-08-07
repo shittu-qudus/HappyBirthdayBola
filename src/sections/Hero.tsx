@@ -5,7 +5,7 @@ import { RiHeartLine } from 'react-icons/ri'
 // ── Personalisation ──────────────────────────────────────────────
 const HER_NAME = "Adebola"
 const SUBTITLE = "Today the world celebrates someone who makes mine infinitely brighter."
-const BG_IMAGE = "/src/images/IMG_7961.jpeg"
+const BG_IMAGE = "/images/IMG_7961.jpeg"
 
 // ── YouTube Song Configuration ────────────────────────────────────
 // ✅ CORRECT Video ID from: https://youtu.be/t_-Fv9HTteQ?si=Rs2hGUbQgjJSo6lo

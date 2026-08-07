@@ -14,7 +14,7 @@ const wheelSegments = [
   'Shopping Spree',
   'Cinema Date',
   'Picnic Date',
-  'Skincare Products', 
+  'Skincare Prod ',
   'Movie Night',
 ]
 const WINNING_LABEL = 'Cinema Date'
