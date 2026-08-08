@@ -21,6 +21,7 @@ const galleryItems = [
   { src: '/images/IMG_8465.jpeg', alt: 'At dusk together', caption: '{{Caption — A small detail only you two would notice}}', h: 275, type: 'image' },
     { src: '/video/bola4.MP4', alt: 'A gentle kiss', caption: '{{Caption — What happened just before this shot}}', h: 220, type: 'video' },
   { src: '/images/IMG_5639.jpeg', alt: 'Bench at sunset', caption: '{{Caption — What you were laughing about here}}', h: 210, type: 'image' },
+      { src: '/video/fola.MP4', alt: 'A gentle kiss', caption: '{{Caption — What happened just before this shot}}', h: 220, type: 'video' },
   { src: '/images/bola5.png', alt: 'Kissing at sunset', caption: '{{Caption — The last thing said before the shutter clicked}}', h: 260, type: 'image' },
 ]
 // ────────────────────────────────────────────────────────────────I
