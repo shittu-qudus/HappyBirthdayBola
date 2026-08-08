@@ -8,6 +8,7 @@ const galleryItems = [
     { src: '/video/bola2.MOV', alt: 'A gentle kiss', caption: '{{Caption — What happened just before this shot}}', h: 220, type: 'video' },
   { src: '/images/face.jpeg', alt: 'Together in a field', caption: '{{Caption — Where were you, what were you saying}}', h: 200, type: 'image' },
   { src: '/images/retro4.jpeg', alt: 'Silhouette of love', caption: '{{Caption — The quiet moment between two people}}', h: 260, type: 'image' },
+    { src: '/images/bola6.png', alt: 'Our story, kissing', caption: '{{Caption — What made this moment unforgettable}}', h: 280, type: 'image' },
 
 
 
