@@ -5,7 +5,7 @@ import { RiHeartLine } from 'react-icons/ri'
 // ── Personalisation ──────────────────────────────────────────────
 const HER_NAME = "Adebola"
 const SUBTITLE = "Today the world celebrates someone who makes mine infinitely brighter."
-const BG_IMAGE = "/images/IMG_7961.jpeg"
+const BG_VIDEO = "/video/bola2.MP4"
 
 // ── YouTube Song Configuration ────────────────────────────────────
 // ✅ CORRECT Video ID from: https://youtu.be/t_-Fv9HTteQ?si=Rs2hGUbQgjJSo6lo
@@ -167,11 +167,14 @@ export default function Hero() {
       {/* Hidden YouTube Player */}
       <div ref={playerContainerRef} className="hidden" />
 
-      {/* B&W hero image */}
+      {/* B&W hero video */}
       <div className="absolute inset-0 bg-[#080808]">
-        <img
-          src={BG_IMAGE}
-          alt="Adebola — our love story"
+        <video
+          src={BG_VIDEO}
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover img-bw"
           style={{ opacity: 0.28, objectPosition: 'center 25%' }}
         />
@@ -202,48 +205,6 @@ export default function Hero() {
             <div className="h-px w-12" style={{ background: 'rgba(255,255,255,0.2)' }} />
             <span className="section-label">A Birthday Edition</span>
             <div className="h-px w-12" style={{ background: 'rgba(255,255,255,0.2)' }} />
-          </div>
-        </div>
-
-        {/* Portrait */}
-        <div
-          className="relative mb-10 transition-all duration-1000"
-          style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateY(20px) scale(0.97)', transitionDelay: '0.2s' }}
-        >
-          {[14, 28].map((pad, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full animate-pulse-glow"
-              style={{
-                inset: -pad,
-                border: `1px solid rgba(255,255,255,${i === 0 ? 0.1 : 0.05})`,
-                borderRadius: '50%',
-                animationDelay: `${i * 0.8}s`,
-              }}
-            />
-          ))}
-          <div
-            className="photo-placeholder rounded-full overflow-hidden"
-            style={{
-              width: 200,
-              height: 200,
-              boxShadow: '0 0 0 1px rgba(255,255,255,0.1), 0 24px 60px rgba(0,0,0,0.8)',
-            }}
-          >
-            <div className="flex flex-col items-center gap-2">
-              <RiHeartLine size={24} style={{ color: 'rgba(255,255,255,0.2)' }} />
-              <span>ADD PORTRAIT</span>
-            </div>
-          </div>
-          <div
-            className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full flex items-center justify-center animate-heartbeat"
-            style={{
-              background: 'white',
-              boxShadow: '0 4px 20px rgba(255,255,255,0.25)',
-              zIndex: 5,
-            }}
-          >
-            <RiHeartLine size={13} style={{ color: '#080808' }} />
           </div>
         </div>
 

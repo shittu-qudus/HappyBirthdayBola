@@ -4,25 +4,26 @@ import { useScrollRevealAll } from '../hooks/useScrollReveal'
 
 // ── Personalisation ──────────────────────────────────────────────
 const galleryItems = [
-  { src: '/images/horse.jpeg', alt: 'Our story, kissing', caption: '{{Caption — What made this moment unforgettable}}', h: 280, type: 'image' },
-    { src: '/video/bola2.MOV', alt: 'A gentle kiss', caption: '{{Caption — What happened just before this shot}}', h: 220, type: 'video' },
+  { src: '/images/horse.jpeg', alt: 'Horseback riding at the beach', caption: 'Beach vibes, horseback riding, and that cool, refreshing breeze.', h: 280, type: 'image' },
+    { src: '/video/bola2.MP4', alt: 'self whining', caption: 'Feeling way too cute, no room for bad vibes', h: 220, type: 'video' },
   { src: '/images/face.jpeg', alt: 'Together in a field', caption: '{{Caption — Where were you, what were you saying}}', h: 200, type: 'image' },
-  { src: '/images/retro4.jpeg', alt: 'Silhouette of love', caption: '{{Caption — The quiet moment between two people}}', h: 260, type: 'image' },
-    { src: '/images/bola6.png', alt: 'Our story, kissing', caption: '{{Caption — What made this moment unforgettable}}', h: 280, type: 'image' },
+  { src: '/images/retro4.jpeg', alt: 'retro', caption: 'I shot this, and till date, I still haven’t gotten my PC. I wonder when that day will finally come.', h: 260, type: 'image' },
+      { src: '/video/walk.MP4', alt: 'why cat walking?', caption: 'why cat walking?', h: 220, type: 'video' },
+    { src: '/images/bola6.png', alt: 'breakfast', caption: 'One little misunderstanding and you’re already looking for the exit.', h: 280, type: 'image' },
 
 
 
 
-  { src: '/video/bola3.MP4', alt: 'A gentle kiss', caption: '{{Caption — What happened just before this shot}}', h: 220, type: 'video' },
+  { src: '/video/bola3.MP4', alt: 'A gentle kiss', caption: '', h: 220, type: 'video' },
 
-  { src: '/images/IMG_8408.jpeg', alt: 'Her smile', caption: '{{Caption — The reason you saved this photo}}', h: 240, type: 'image' },
-    { src: '/video/bola.MP4', alt: 'A gentle kiss', caption: '{{Caption — What happened just before this shot}}', h: 220, type: 'video' },
-  { src: '/images/IMG_8858.jpeg', alt: 'Our adventure', caption: '{{Caption — An adventure we never want to forget}}', h: 195, type: 'image' },
-  { src: '/images/IMG_8465.jpeg', alt: 'At dusk together', caption: '{{Caption — A small detail only you two would notice}}', h: 275, type: 'image' },
-    { src: '/video/bola4.MP4', alt: 'A gentle kiss', caption: '{{Caption — What happened just before this shot}}', h: 220, type: 'video' },
-  { src: '/images/IMG_5639.jpeg', alt: 'Bench at sunset', caption: '{{Caption — What you were laughing about here}}', h: 210, type: 'image' },
-      { src: '/video/fola.MP4', alt: 'A gentle kiss', caption: '{{Caption — What happened just before this shot}}', h: 220, type: 'video' },
-  { src: '/images/bola5.png', alt: 'Kissing at sunset', caption: '{{Caption — The last thing said before the shutter clicked}}', h: 260, type: 'image' },
+  { src: '/images/IMG_8408.jpeg', alt: 'Her smile', caption: '', h: 240, type: 'image' },
+    { src: '/video/bola.MP4', alt: 'A gentle kiss', caption: '', h: 220, type: 'video' },
+  { src: '/images/IMG_8858.jpeg', alt: '', caption: '', h: 195, type: 'image' },
+  { src: '/images/IMG_8465.jpeg', alt: '', caption: '', h: 275, type: 'image' },
+    { src: '/video/bola4.MP4', alt: 'drunkard', caption: 'just few shots,yaaa gone', h: 220, type: 'video' },
+  { src: '/images/IMG_5639.jpeg', alt: 'Bench at sunset', caption: '', h: 210, type: 'image' },
+      { src: '/video/fola.MP4', alt: 'A gentle kiss', caption: '', h: 220, type: 'video' },
+  { src: '/images/bola5.png', alt: 'Kissing at sunset', caption: '', h: 260, type: 'image' },
 ]
 // ────────────────────────────────────────────────────────────────I
 

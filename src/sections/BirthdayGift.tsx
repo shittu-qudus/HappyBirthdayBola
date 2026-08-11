@@ -3,12 +3,14 @@ import { FiGift, FiLink } from 'react-icons/fi'
 import { useScrollRevealAll } from '../hooks/useScrollReveal'
 
 // ── Personalisation ──────────────────────────────────────────────
-const giftTitle = '{{Gift Title — e.g. "A Day Entirely For You"}}'
-const giftMessage =
-  '{{Describe the gift or surprise here — the experience, the invitation, the feeling. Make it feel like the best thing she has ever received.}}'
+const giftTitle = 'A Day Entirely For You'
 
-// Segments shown on the wheel. Order/count doesn't matter —
-// the spin is rigged to always stop on WINNING_LABEL.
+const giftMessage =
+  'Wheel Spinning, There’s a little surprise waiting for you below. Give the wheel a spin and see what you get! You only get one spin, so… fingers crossed! '
+
+
+
+
 const wheelSegments = [
   'Spa Day',
   'Shopping Spree',
@@ -19,7 +21,7 @@ const wheelSegments = [
 ]
 const WINNING_LABEL = 'Cinema Date'
 
-const dateDetails = '{{Cinema name, movie, date & time — dress comfy}}'
+const dateDetails = 'You pick the movie and the date.'
 // ────────────────────────────────────────────────────────────────
 
 type Phase = 'idle' | 'shaking' | 'open'
@@ -359,7 +361,7 @@ export default function BirthdayGift() {
                       className="font-display font-normal mb-2"
                       style={{ fontSize: 'clamp(1.6rem, 5vw, 2.4rem)', color: 'white', letterSpacing: '-0.02em' }}
                     >
-                      🎬 {WINNING_LABEL}
+                       {WINNING_LABEL}
                     </h4>
                     <p
                       className="text-xs"

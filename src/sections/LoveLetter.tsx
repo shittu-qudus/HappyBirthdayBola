@@ -1,28 +1,92 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FiMail, FiCornerDownLeft } from 'react-icons/fi'
 import { useScrollRevealAll } from '../hooks/useScrollReveal'
 
 // ── Personalisation ──────────────────────────────────────────────
-const LETTER_DATE = "{{Today's Date}}"
+const LETTER_DATE = "August 19, 2026"
 const letter = {
-  greeting: 'My dearest Adebola,',
+  greeting: 'My Dearest Adebola,',
   opening:
-    '{{Write your birthday letter opening here. Tell her what this day means, what it feels like to be celebrating it with her, how different your world is because she exists in it.}}',
+    'Today is your special day, and honestly, I\'m grateful to Allah for blessing the world with you.  May Allah continue to bless your new age, increase you in wisdom, happiness, and good health, and make this new chapter better than the last. Insha Allah, this year will bring you plenty of reasons to smile.',
   memory:
-    '{{Share your most cherished memory together. Be vivid and specific — the kind of detail that will bring both tears and smiles at the same time.}}',
+    'I still remember some of the random moments we\'ve shared, especially the ones that started unexpectedly and somehow became memories we still laugh about.  Those little moments are what make our journey interesting. Ya Rabb, may we continue to create more beautiful memories, even if some of them come with small misunderstandings along the way. ',
   appreciation:
-    '{{Write about the things you appreciate most about her — not just the grand gestures, but the small everyday things that remind you how lucky you are.}}',
+    'Adebola, one thing I genuinely appreciate about you is the person you are. Your personality, your confidence, your funny moments, and even the times when you\'re being stubborn all make you uniquely you. You have a way of making ordinary moments interesting, and that\'s something I truly value.',
   wishes:
-    '{{Write your birthday wishes for her. What do you hope this new year brings? What do you want the world to give her that she deserves?}}',
+    'As you enter this new age, my prayer for you is simple: may Allah grant you your heart\'s desires, protect you from anything harmful, and open doors of opportunities for you. May He bless your efforts, increase your happiness, strengthen your faith, and surround you with good people. Insha Allah, everything you\'re working towards will fall into place at the right time.',
   closing:
-    '{{Close with something only you two would understand — a private phrase, a promise, a feeling only you can name.}}',
-  signature: 'Forever Yours,\nQudus ❤️',
+    'So today, forget the stress, enjoy yourself, eat plenty of cake , take beautiful pictures, and celebrate properly. You deserve to enjoy your day. May this new chapter bring you more laughter, unforgettable experiences, answered prayers, and countless blessings.\n\nHappy Birthday, Adebola! \nMay Allah bless your new age and make it a truly beautiful one. Ameen. ',
+  signature: 'With Love,\nQudus ❤️',
 }
 // ────────────────────────────────────────────────────────────────
 
 export default function LoveLetter() {
   const [opened, setOpened] = useState(false)
+  const [displayedContent, setDisplayedContent] = useState<string[]>([])
+  const [isTyping, setIsTyping] = useState(false)
+  const [currentParaIndex, setCurrentParaIndex] = useState(0)
+  const [charIndex, setCharIndex] = useState(0)
   const containerRef = useScrollRevealAll()
+  
+  const paragraphs = [
+    letter.opening,
+    letter.memory,
+    letter.appreciation,
+    letter.wishes,
+    letter.closing
+  ]
+
+  // Typing animation effect
+  useEffect(() => {
+    if (!opened) {
+      setDisplayedContent([])
+      setCurrentParaIndex(0)
+      setCharIndex(0)
+      return
+    }
+
+    setIsTyping(true)
+    
+    if (currentParaIndex < paragraphs.length) {
+      const currentText = paragraphs[currentParaIndex]
+      
+      if (charIndex < currentText.length) {
+        const timer = setTimeout(() => {
+          setDisplayedContent(prev => {
+            const newContent = [...prev]
+            if (newContent.length <= currentParaIndex) {
+              newContent.push('')
+            }
+            newContent[currentParaIndex] = currentText.substring(0, charIndex + 1)
+            return newContent
+          })
+          setCharIndex(prev => prev + 1)
+        }, 25) // Slightly slower for calligraphy feel
+        
+        return () => clearTimeout(timer)
+      } else {
+        // Move to next paragraph after a pause
+        const timer = setTimeout(() => {
+          setCurrentParaIndex(prev => prev + 1)
+          setCharIndex(0)
+        }, 600)
+        
+        return () => clearTimeout(timer)
+      }
+    } else {
+      setIsTyping(false)
+    }
+  }, [opened, currentParaIndex, charIndex, paragraphs])
+
+  // Reset when closing
+  useEffect(() => {
+    if (!opened) {
+      setDisplayedContent([])
+      setCurrentParaIndex(0)
+      setCharIndex(0)
+      setIsTyping(false)
+    }
+  }, [opened])
 
   return (
     <section
@@ -144,30 +208,60 @@ export default function LoveLetter() {
                 <div className="space-y-5">
                   <p
                     className="font-display font-normal text-xl mb-6"
-                    style={{ color: '#080808', letterSpacing: '0.01em' }}
+                    style={{ 
+                      color: '#080808', 
+                      letterSpacing: '0.02em',
+                      fontFamily: "'Playfair Display', 'Georgia', serif",
+                    }}
                   >
                     {letter.greeting}
                   </p>
 
-                  {[letter.opening, letter.memory, letter.appreciation, letter.wishes, letter.closing].map((para, pi) => (
+                  {displayedContent.map((text, index) => (
                     <p
-                      key={pi}
+                      key={index}
                       className="text-sm leading-relaxed"
                       style={{
-                        color: para.startsWith('{{') ? 'rgba(0,0,0,0.28)' : 'rgba(0,0,0,0.65)',
-                        fontFamily: "'Inter', sans-serif",
-                        fontStyle: para.startsWith('{{') ? 'italic' : 'normal',
-                        lineHeight: 2,
+                        color: 'rgba(0,0,0,0.7)',
+                        fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+                        fontSize: '1.05rem',
+                        lineHeight: 2.1,
+                        letterSpacing: '0.02em',
+                        minHeight: '1.8rem',
+                        fontStyle: 'italic',
                       }}
                     >
-                      {para}
+                      {text}
+                      {isTyping && index === currentParaIndex - 1 && (
+                        <span 
+                          className="inline-block ml-0.5"
+                          style={{
+                            width: '2px',
+                            height: '1.2em',
+                            background: '#8B7355',
+                            animation: 'blink 0.8s infinite'
+                          }}
+                        />
+                      )}
                     </p>
                   ))}
+
+                  {/* Show all paragraphs after typing is complete */}
+                  {!isTyping && displayedContent.length === paragraphs.length && (
+                    <>
+                      {/* All content is already displayed */}
+                    </>
+                  )}
 
                   <div className="pt-5" style={{ borderTop: '1px solid rgba(0,0,0,0.07)' }}>
                     <p
                       className="font-display font-normal text-xl whitespace-pre-line"
-                      style={{ color: '#080808', lineHeight: 1.6 }}
+                      style={{ 
+                        color: '#080808', 
+                        lineHeight: 1.6,
+                        fontFamily: "'Playfair Display', 'Georgia', serif",
+                        letterSpacing: '0.02em',
+                      }}
                     >
                       {letter.signature}
                     </p>
@@ -189,6 +283,21 @@ export default function LoveLetter() {
       </div>
 
       <div className="rule absolute bottom-0 left-0 right-0" />
+
+      {/* Add typing cursor animation and import Google Fonts */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        @keyframes blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0; }
+        }
+
+        /* Smooth writing effect for each paragraph */
+        .typing-paragraph {
+          transition: opacity 0.3s ease;
+        }
+      `}</style>
     </section>
   )
 }
