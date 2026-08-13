@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => {
         title: "Happy Birthday, AdeBola ❤️",
         description: "Happy Birthday, AdeBola ❤️ Wishing you a beautiful day filled with love, happiness, and unforgettable moments.",
         openGraph: {
-          image: "https://happy-birthday-bola.vercel.app/unbola.png"
+          image: "https://happy-birthday-bola.vercel.app/images/unbola.png"
         },
         robots: {
           index: false
