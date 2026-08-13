@@ -94,7 +94,7 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
   const title = config.title ?? "Happy Birthday, AdeBola ❤️"
   const description = config.description ?? "A special birthday love story made just for you. ❤️"
   const favicon = config.icons?.icon ?? ''
-  const socialImage = config.openGraph?.image ?? 'https://happy-birthday-bola.vercel.app/unbola.png'
+  const socialImage = config.openGraph?.image ?? 'https://happy-birthday-bola.vercel.app/images/unbola.png'
   const language = sanitizeHtmlValue(config.language) || 'en'
   const googleAnalyticsId = sanitizeHtmlValue(config.analytics?.googleAnalyticsId)
   const headStart = config.customScripts?.headStart ?? ''
