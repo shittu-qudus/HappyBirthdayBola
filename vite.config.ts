@@ -19,7 +19,17 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       tailwindcss(),
-      figmaSiteConfiguration(siteConfiguration),
+      figmaSiteConfiguration({
+        ...siteConfiguration,
+        title: "Happy Birthday, AdeBola ❤️",
+        description: "Happy Birthday, AdeBola ❤️ Wishing you a beautiful day filled with love, happiness, and unforgettable moments.",
+        openGraph: {
+          image: "https://happy-birthday-bola.vercel.app/unbola.png"
+        },
+        robots: {
+          index: false
+        }
+      }),
       figmaErrorOverlayReplay(),
       figmaReactRefreshBoundaryFallback(),
       figmaMakeKitPlugin({ storiesGlob: '/src/**/*.stories.{ts,tsx,js,jsx}' }),
@@ -81,10 +91,10 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
     return html.replace(`<!-- ${slotName} -->`, content)
   }
 
-  const title = config.title ?? "HAPPY BIRTHDAY, ADEBOLA! 🎉"
-  const description = config.description ?? ''
+  const title = config.title ?? "Happy Birthday, AdeBola ❤️"
+  const description = config.description ?? "A special birthday love story made just for you. ❤️"
   const favicon = config.icons?.icon ?? ''
-  const socialImage = config.openGraph?.image ?? ''
+  const socialImage = config.openGraph?.image ?? 'https://happy-birthday-bola.vercel.app/unbola.png'
   const language = sanitizeHtmlValue(config.language) || 'en'
   const googleAnalyticsId = sanitizeHtmlValue(config.analytics?.googleAnalyticsId)
   const headStart = config.customScripts?.headStart ?? ''
@@ -124,29 +134,140 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
         result = replaceHtmlCommentSlot(result, 'figma:body-end', bodyEnd)
 
         const tags: HtmlTagDescriptor[] = []
+        
+        // Meta description
         if (description) {
-          tags.push({ tag: 'meta', attrs: { name: 'description', content: description }, injectTo: 'head' })
+          tags.push({ 
+            tag: 'meta', 
+            attrs: { 
+              name: 'description', 
+              content: description 
+            }, 
+            injectTo: 'head' 
+          })
         }
+        
+        // Robots
         if (config.robots?.index === false) {
-          tags.push({ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' }, injectTo: 'head' })
+          tags.push({ 
+            tag: 'meta', 
+            attrs: { 
+              name: 'robots', 
+              content: 'noindex, nofollow' 
+            }, 
+            injectTo: 'head' 
+          })
         }
+        
+        // Favicon
         if (favicon) {
-          tags.push({ tag: 'link', attrs: { rel: 'icon', href: favicon }, injectTo: 'head' })
+          tags.push({ 
+            tag: 'link', 
+            attrs: { 
+              rel: 'icon', 
+              href: favicon 
+            }, 
+            injectTo: 'head' 
+          })
         }
+        
+        // Open Graph / Social Sharing
         if (title) {
-          tags.push({ tag: 'meta', attrs: { property: 'og:title', content: title }, injectTo: 'head' })
+          tags.push(
+            { 
+              tag: 'meta', 
+              attrs: { 
+                property: 'og:title', 
+                content: title 
+              }, 
+              injectTo: 'head' 
+            },
+            { 
+              tag: 'meta', 
+              attrs: { 
+                property: 'og:type', 
+                content: 'website' 
+              }, 
+              injectTo: 'head' 
+            }
+          )
         }
+        
         if (description) {
-          tags.push({ tag: 'meta', attrs: { property: 'og:description', content: description }, injectTo: 'head' })
+          tags.push(
+            { 
+              tag: 'meta', 
+              attrs: { 
+                property: 'og:description', 
+                content: description 
+              }, 
+              injectTo: 'head' 
+            }
+          )
         }
+        
         if (socialImage) {
           tags.push(
-            { tag: 'meta', attrs: { property: 'og:image', content: socialImage }, injectTo: 'head' },
-            { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' }, injectTo: 'head' },
-            { tag: 'meta', attrs: { name: 'twitter:image', content: socialImage }, injectTo: 'head' },
+            { 
+              tag: 'meta', 
+              attrs: { 
+                property: 'og:image', 
+                content: socialImage 
+              }, 
+              injectTo: 'head' 
+            },
+            { 
+              tag: 'meta', 
+              attrs: { 
+                property: 'og:image:alt', 
+                content: title 
+              }, 
+              injectTo: 'head' 
+            },
+            { 
+              tag: 'meta', 
+              attrs: { 
+                property: 'og:url', 
+                content: 'https://happy-birthday-bola.vercel.app/' 
+              }, 
+              injectTo: 'head' 
+            },
+            { 
+              tag: 'meta', 
+              attrs: { 
+                name: 'twitter:card', 
+                content: 'summary_large_image' 
+              }, 
+              injectTo: 'head' 
+            },
+            { 
+              tag: 'meta', 
+              attrs: { 
+                name: 'twitter:title', 
+                content: title 
+              }, 
+              injectTo: 'head' 
+            },
+            { 
+              tag: 'meta', 
+              attrs: { 
+                name: 'twitter:description', 
+                content: description 
+              }, 
+              injectTo: 'head' 
+            },
+            { 
+              tag: 'meta', 
+              attrs: { 
+                name: 'twitter:image', 
+                content: socialImage 
+              }, 
+              injectTo: 'head' 
+            }
           )
         }
 
+        // Google Analytics
         if (googleAnalyticsId) {
           tags.push(
             {

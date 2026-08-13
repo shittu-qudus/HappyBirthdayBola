@@ -6,7 +6,7 @@ import { useScrollRevealAll } from '../hooks/useScrollReveal'
 // ── Personalisation ──────────────────────────────────────────────
 const HER_NAME = "Adebola"
 const FINAL_MESSAGE =
-  '{{Write your final birthday message here — a promise, a declaration, a wish so sincere she will read it on her worst days and feel loved.}}'
+  'Happy birthday, my love.May this new chapter bring you endless happiness, peace, and beautiful memories. Always remember, you are deeply loved, today and every day.'
 const SIGNATURE = 'Forever Yours,\nQudus ❤️'
 // ────────────────────────────────────────────────────────────────
 
