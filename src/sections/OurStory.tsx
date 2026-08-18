@@ -33,7 +33,7 @@ const chapters = [
   {
     label: 'IV',
     title: 'That Unforgettable Memory',
-    body: "Our first date was honestly a movie. We had a misunderstanding, fought a little, then squashed the beef and started talking about living right. Somehow, by 1 PM, we were at the Marriott. Definitely not how I expected our first date to go!",
+    body: "Our first date was honestly a movie. We had a misunderstanding, fought a little, then squashed the beef and started talking about living right. Somehow, by 1 AM, we were at the Marriott. Definitely not how I expected our first date to go!",
     note: 'First Date Schenegian',
     photo: '/images/home1.jpeg',
     alt: 'A smile that stays with you',
